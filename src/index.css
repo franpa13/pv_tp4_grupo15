@@ -1,5 +1,7 @@
 body {
   font-family: sans-serif;
+  background-color: black;
+  color: white;
 }
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
