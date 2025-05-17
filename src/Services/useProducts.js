@@ -1,8 +1,11 @@
 import { useState, useCallback } from "react";
-import { addProduct, updateProduct, deleteProduct, searchProduct } from "../services/productService";
+import { addProduct, updateProduct, deleteProduct, searchProduct } from "./productosService.js";
+
+//FUNCIONES DE SERVICIO PARA ACTUALIZAR EL ESTADO GLOBAL
+
 
 export const useProducts = () => {
-    const [products, setProducts] = useState([]);  // Estado inicial vacío
+    const [products, setProducts] = useState([]);  
 
     const handleAddProduct = useCallback((newProduct) => {
         setProducts(prevProducts => addProduct(prevProducts, newProduct));

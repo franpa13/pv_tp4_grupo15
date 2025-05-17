@@ -14,12 +14,14 @@ const ProductForm = ({ addProduct, updateProduct, isEditing, productToEdit }) =>
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={producto.descripcion} onChange={(e) => setProducto({ ...producto, descripcion: e.target.value })} placeholder="Descripción" required />
-            <input type="number" value={producto.precio} onChange={(e) => setProducto({ ...producto, precio: e.target.value })} placeholder="Precio" required />
-            <input type="number" value={producto.descuento} onChange={(e) => setProducto({ ...producto, descuento: e.target.value })} placeholder="Descuento %" required />
-            <button type="submit">{isEditing ? "Actualizar Producto" : "Agregar Producto"}</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="descripcion" value={producto.descripcion} onChange={handleChange} placeholder="Descripción" required />
+        <input type="number" name="precioUnitario" value={producto.precioUnitario} onChange={handleChange} placeholder="Precio Unitario" required />
+        <input type="number" name="descuento" value={producto.descuento} onChange={handleChange} placeholder="Descuento %" required />
+        <input type="number" name="stock" value={producto.stock} onChange={handleChange} placeholder="Stock" required />
+        <p>Precio con descuento: ${producto.precioConDescuento.toFixed(2)}</p>
+        <button type="submit">{isEditing ? "Actualizar Producto" : "Agregar Producto"}</button>
+      </form>
     );
 };
 
