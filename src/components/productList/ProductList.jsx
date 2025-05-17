@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { ProductItem } from "../productItem/ProductItem";
 
 export const ProductList = () => {
+  const [id, setId] = useState(0);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState(0);
+  const [stock, setStock] = useState(0);
   const [products, setProducts] = useState([
     {
       id: 1,
