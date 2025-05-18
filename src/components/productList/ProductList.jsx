@@ -1,47 +1,37 @@
 import React, { useState } from "react";
 import { ProductItem } from "../productItem/ProductItem";
 
-export const ProductList = () => {
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: "Lentejas",
-      description: "lentejas ",
-      price: 5000,
-      stock: 5000,
-    },
-    {
-      id: 2,
-      name: "Arroz",
-      description: "arroz Salvador",
-      price: 2000,
-      stock: 2000,
-    },
-    {
-      id: 3,
-      name: "Fideos",
-      description: "fideos Lucheti",
-      price: 3000,
-      stock: 3000,
-    },
-  ]);
-
+export const ProductList = ({ products }) => {
   return (
     <div className="product-list-container">
-      <h2>Lista de Productos</h2>{" "}
-      {products.length > 0 ? ( // Verificamos si hay productos antes de mapear
-        products.map((product) => (
-          <ProductItem
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            stock={product.stock}
-          />
-        ))
+      <h2>Tabla de Productos</h2>{" "}
+      {products.length > 0 ? (
+        <table className="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <ProductItem
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                description={product.description}
+                price={product.price}
+                stock={product.stock}
+              />
+            ))}
+          </tbody>
+        </table>
       ) : (
-        <p>No hay productos en esta lista.</p>
+        <p>No hay productos para mostrar en la tabla.</p>
       )}
     </div>
   );
