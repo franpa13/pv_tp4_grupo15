@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { ProductItem } from "../productItem/ProductItem";
 import "./productList.css";
-export const ProductList = ({ products }) => {
+export const ProductList = ({ products, setProducts }) => {
+
+
+
   return (
     <div className="product-list-container">
       <h2>Tabla de Productos</h2>{" "}
@@ -30,6 +33,8 @@ export const ProductList = ({ products }) => {
                 price={product.price}
                 stock={product.stock}
                 discount={product.discount}
+                products={products}
+                setProducts={setProducts}
               />
             ))}
           </tbody>

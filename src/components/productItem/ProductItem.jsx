@@ -1,8 +1,15 @@
 import { Button } from "../ui/button/Button";
+import { deleteProduct } from "../services/productoService.js";
 import "./productItem.css";
 
-export const ProductItem = ({ id, name, description, price, priceDiscount, stock, discount }) => {
+export const ProductItem = ({ id, name, description, price, priceDiscount, stock, discount, products, setProducts }) => {
 
+  const handleDelete = () => {
+    if (window.confirm(`¿Estás seguro de que deseas eliminar el producto "${name}"?`)) {
+      const updatedProducts = deleteProduct(products, id); 
+      setProducts(updatedProducts); 
+    }
+  };
 
   return (
     <tr>
@@ -15,7 +22,7 @@ export const ProductItem = ({ id, name, description, price, priceDiscount, stock
       <td>{stock}</td>
       <td>
         <div className="actions-container">
-          <Button variant="danger" size="small">Eliminar</Button>
+          <Button variant="danger" size="small" onClick={handleDelete}>Eliminar</Button>
           <Button variant="primary" size="small">Editar</Button>
         </div>
       </td>

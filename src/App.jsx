@@ -4,7 +4,7 @@ import { ProductForm, ProductList } from "./components";
 function App() {
   const [products, setProducts] = useState([
     {
-      id: Date.now(),
+      id: Date.now() + 1,
       name: "Lentejas",
       description: "lentejas ",
       discount: 5,
@@ -13,7 +13,7 @@ function App() {
       stock: 5000,
     },
     {
-      id: Date.now(),
+      id: Date.now() + 2,
       name: "Arroz",
       description: "arroz Salvador",
       discount: 5,
@@ -22,7 +22,7 @@ function App() {
       stock: 2000,
     },
     {
-      id: Date.now(),
+      id: Date.now() + 3,
       name: "Fideos",
       description: "fideos Lucheti",
       discount: 5,
@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <ProductForm products={products} setProducts={setProducts} ></ProductForm>
-      <ProductList products={products}></ProductList>
+      <ProductList products={products} setProducts={setProducts}></ProductList>
     </>
   );
 }
