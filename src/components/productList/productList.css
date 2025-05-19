@@ -1,0 +1,78 @@
+.product-list-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+.product-list-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 2em;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Encabezados de la tabla (th) y celdas de datos (td) */
+.products-table th,
+.products-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 0.95em;
+}
+
+/* Estilos específicos para los encabezados de la tabla */
+.products-table th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.products-table tbody tr:hover {
+  background-color: #e6f7ff;
+  cursor: pointer;
+}
+
+/* Alineación de la celda de acciones */
+.products-table .actions-cell {
+  text-align: center; /* Centra los botones en la celda de acciones */
+  white-space: nowrap;
+}
+
+/* Contenedor de botones dentro de la celda de acciones */
+.actions-container {
+  display: flex; /* Usa flexbox para alinear los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 8px; /* Espacio entre los botones */
+}
+
+/* Estilos para el mensaje cuando no hay productos */
+.product-list-container p {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.products-table th,
+.products-table td {
+  padding: 8px 10px; /* Menos relleno en pantallas pequeñas */
+  font-size: 0.9em;
+}

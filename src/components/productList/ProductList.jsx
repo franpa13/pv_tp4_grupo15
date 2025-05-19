@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ProductItem } from "../productItem/ProductItem";
-
+import "./productList.css";
 export const ProductList = ({ products }) => {
   return (
     <div className="product-list-container">
