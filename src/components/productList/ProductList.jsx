@@ -5,7 +5,7 @@ export const ProductList = ({ products }) => {
   return (
     <div className="product-list-container">
       <h2>Tabla de Productos</h2>{" "}
-      {products.length > 0 ? (
+      {products?.length > 0 ? (
         <table className="products-table">
           <thead>
             <tr>
@@ -13,6 +13,8 @@ export const ProductList = ({ products }) => {
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Precio</th>
+              <th>Descuento(%)</th>
+              <th>Precio con descuento</th>
               <th>Stock</th>
               <th>Acciones</th>
             </tr>
@@ -24,8 +26,10 @@ export const ProductList = ({ products }) => {
                 id={product.id}
                 name={product.name}
                 description={product.description}
+                priceDiscount={product.priceDiscount}
                 price={product.price}
                 stock={product.stock}
+                discount={product.discount}
               />
             ))}
           </tbody>

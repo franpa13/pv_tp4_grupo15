@@ -21,6 +21,7 @@
 .products-table {
   width: 100%;
   border-collapse: collapse;
+  color: black;
   margin-top: 20px;
 }
 
