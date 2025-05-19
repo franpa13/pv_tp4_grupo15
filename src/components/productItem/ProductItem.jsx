@@ -1,18 +1,24 @@
-import { Button } from "../ui/button/Button"
-import "./productItem.css"
-export const ProductItem = ({ id, name, description, price, stock }) => {
-  return (
-    <div className="container-item">
-      <span>ID : {id}</span>
-      <span>nombre : {name}</span>
-      <span>descripcion : {description} </span>
-      <span>price : {price}</span>
-      <span>stock : {stock} </span>
-      <div className="actions-container">
+import { Button } from "../ui/button/Button";
+import "./productItem.css";
 
-        <Button variant="danger" size="small">Eliminar</Button>
-        <Button variant="primary" size="small">Editar</Button>
-      </div>
-    </div>
-  )
-}
+export const ProductItem = ({ id, name, description, price, priceDiscount, stock, discount }) => {
+
+
+  return (
+    <tr>
+      <td>#{id.toString().slice(-4)}</td>
+      <td>{name}</td>
+      <td>{description}</td>
+      <td>${price}</td>
+      <td>{discount}</td>
+      <td>${priceDiscount}</td>
+      <td>{stock}</td>
+      <td>
+        <div className="actions-container">
+          <Button variant="danger" size="small">Eliminar</Button>
+          <Button variant="primary" size="small">Editar</Button>
+        </div>
+      </td>
+    </tr>
+  );
+};
