@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { ProductItem } from "../productItem/ProductItem";
 import "./productList.css";
+
 export const ProductList = ({ products, setProducts }) => {
 
 
@@ -26,15 +26,10 @@ export const ProductList = ({ products, setProducts }) => {
             {products.map((product) => (
               <ProductItem
                 key={product.id}
-                id={product.id}
-                name={product.name}
-                description={product.description}
-                priceDiscount={product.priceDiscount}
-                price={product.price}
-                stock={product.stock}
-                discount={product.discount}
+                product={product}
                 products={products}
                 setProducts={setProducts}
+            
               />
             ))}
           </tbody>
@@ -42,6 +37,7 @@ export const ProductList = ({ products, setProducts }) => {
       ) : (
         <p>No hay productos para mostrar en la tabla.</p>
       )}
+   
     </div>
   );
 };

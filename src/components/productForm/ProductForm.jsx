@@ -41,6 +41,7 @@ export const ProductForm = ({ products, setProducts }) => {
       [name]: value,
       id: Date.now()
     };
+
     const price = parseFloat(updatedProduct.price) || 0;
     const discount = parseFloat(updatedProduct.discount) || 0;
     const priceDiscount = price - (price * discount / 100);
@@ -74,7 +75,7 @@ export const ProductForm = ({ products, setProducts }) => {
 
         message="Producto agregado con éxito ✅"
         visible={openSnackbar}
-        duration={2000}
+        duration={2500}
         onClose={() => setOpenSnackbar(false)}
         variant="submit"
       />

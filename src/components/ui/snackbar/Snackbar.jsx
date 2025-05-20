@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./Snackbar.css";
 
-export const Snackbar = ({ message, visible, onClose, duration = 3000, variant = "crear" }) => {
+export const Snackbar = ({ message, visible, onClose, duration = 3000, variant = "submit" }) => {
     useEffect(() => {
         if (visible) {
             const timer = setTimeout(() => {
