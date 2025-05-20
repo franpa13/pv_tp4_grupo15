@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { searchProduct } from '../services/productoService.js'
-import  ProductList  from "../ProductList/ProductList.jsx";
+import { searchProduct } from '../services/productoService.js';
 
 
 
@@ -36,9 +35,19 @@ export const SearchBar = ({products}) => {
                 />
                 <button type='submit'>Buscar</button>
             </form>
-            <ul> {sProducts.map((product) => ( 
-                <li key={product.id}> <strong>{product.descripcion}</strong> - Precio: ${product.precioConDescuento} </li> ))} 
-            </ul>
+            {sProducts.length > 0 && (
+                <div>
+                    <h3>Resultados de la búsqueda:</h3>
+                    <ul>
+                        {sProducts.map(product => (
+                            <li key={product.id}>
+                                ID: {product.id} - Nombre: {product.name} - Descripción: {product.description} - Descuento: {product.discount} - Precio: {product.price} - Stock: {product.stock}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+            {sProducts.length === 0 && query !== '' && <p>No se encontraron productos para "{query}".</p>}
         </div>
     );
 }
