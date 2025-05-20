@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { ProductForm, ProductList } from "./components";
+import { ProductForm, ProductList, SearchBar } from "./components";
 function App() {
   const [products, setProducts] = useState([
     {
@@ -34,6 +34,7 @@ function App() {
   return (
     <>
       <ProductForm products={products} setProducts={setProducts} ></ProductForm>
+      <SearchBar products={products}/>
       <ProductList products={products} setProducts={setProducts}></ProductList>
     </>
   );
