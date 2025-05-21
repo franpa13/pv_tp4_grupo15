@@ -16,7 +16,7 @@ export const deleteProduct = (products, productId) => {
 
 export const searchProduct = (products, query) => {
     return products.filter(product =>
-        product.descripcion.toLowerCase().includes(query.toLowerCase()) ||
-        product.id.toString().includes(query)
+        product.description.toLowerCase().includes(query.toLowerCase()) ||
+        product.id.toString().includes(query) ||   product.name.toLowerCase().includes(query.toLowerCase()) 
     );
 };

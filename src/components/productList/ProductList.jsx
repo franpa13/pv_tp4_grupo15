@@ -1,13 +1,10 @@
 import { ProductItem } from "../productItem/ProductItem";
 import "./productList.css";
 
-export const ProductList = ({ products, setProducts }) => {
-
-
-
+export const ProductList = ({ products, onDeleteProduct, onUpdateProduct }) => {
   return (
     <div className="product-list-container">
-      <h2>Tabla de Productos</h2>{" "}
+      <h2>Tabla de Productos</h2>
       {products?.length > 0 ? (
         <table className="products-table">
           <thead>
@@ -27,9 +24,8 @@ export const ProductList = ({ products, setProducts }) => {
               <ProductItem
                 key={product.id}
                 product={product}
-                products={products}
-                setProducts={setProducts}
-            
+                onDeleteProduct={onDeleteProduct}
+                onUpdateProduct={onUpdateProduct}
               />
             ))}
           </tbody>
@@ -37,7 +33,6 @@ export const ProductList = ({ products, setProducts }) => {
       ) : (
         <p>No hay productos para mostrar en la tabla.</p>
       )}
-   
     </div>
   );
 };

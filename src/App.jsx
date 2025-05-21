@@ -1,32 +1,32 @@
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { ProductForm, ProductList } from "./components";
 import SearchBar from "./components/searchBar/SearchBar";
-
+import { deleteProduct, updateProduct } from "./components/services/productoService";
+import { searchProduct } from "./components/services/productoService";
 function App() {
-  const [products, setProducts] = useState([
+  const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  ]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); //  MOVER
+  const handleDeleteProduct = (idToDelete) => {
+    setProducts((prevProducts) => deleteProduct(prevProducts, idToDelete));
+  };
 
+  const handleUpdateProduct = (updatedProduct) => {
+    setProducts((prevProducts) => updateProduct(prevProducts, updatedProduct));
+  };
 
-  useEffect(() => {
-    const filtered = products.filter((prod) =>
-      prod.id.toString().includes(searchTerm) ||
-      prod.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  }, [searchTerm, products]);
-
-
+  const visibleProducts = searchProduct(products,searchTerm)
 
   return (
     <>
       <ProductForm products={products} setProducts={setProducts} />
       <SearchBar search={searchTerm} onSearch={setSearchTerm} />
-      <ProductList products={filteredProducts} setProducts={setProducts} />
+      <ProductList
+        products={visibleProducts}
+        onDeleteProduct={handleDeleteProduct}
+        onUpdateProduct={handleUpdateProduct}
+      />
     </>
   );
 }
