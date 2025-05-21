@@ -1,4 +1,4 @@
-import { Button } from "../ui/button/Button";
+//import { Button } from "../ui/button/Button";
 import { deleteProduct, updateProduct } from "../services/productoService.js";
 import "./productItem.css";
 import Modal from "../ui/modal/Modal.jsx";
