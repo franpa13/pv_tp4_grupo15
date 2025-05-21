@@ -1,15 +1,10 @@
 import { useState } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ onSearch }) {
-  const [term, setTerm] = useState("");
+function SearchBar({ search, onSearch }) {
 
   const handleChange = (e) => {
-    setTerm(e.target.value);
-  };
-
-  const handleSearchClick = () => {
-    onSearch(term); // Busca cuando hago click
+    onSearch(e.target.value)
   };
 
   return (
@@ -17,13 +12,11 @@ function SearchBar({ onSearch }) {
       <input
         type="text"
         placeholder="Buscar por ID o Descripcion"
-        value={term}
+        value={search}
         onChange={handleChange}
         className="searchbar-input"
       />
-      <button onClick={handleSearchClick} className="searchbar-button">
-        Buscar
-      </button>
+
     </div>
   );
 }
